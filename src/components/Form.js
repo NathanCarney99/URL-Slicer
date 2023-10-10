@@ -19,7 +19,7 @@ class Form extends React.Component {
     };
   }
     // When user clicks submit, this will be called
-    onSubmit = async {event} => 
+    onSubmit = async (event) => 
     {
         event.preventDefault(); // Prevents page from reloading when submit is clicked
         this.setState
@@ -89,6 +89,64 @@ class Form extends React.Component {
         errors.push("longURL");
         errorMessages['longURL'] = "Please put a URL in the form of https://www.....";
       }
+
+      // Preferred Alias
+      if(this.state.preferredAlias !== '') 
+      {
+          if(this.state.preferredAlias.length > 7) 
+          {
+            errors.push("suggestedAlias");
+            errorMessages["suggestedAlias"] = 'Please Enter an Alias less than 7 Characters';
+          }
+          else if (this.state.preferredAlias.indexOf(' ') >= 0) 
+          {
+            errors.push("suggestedAlias");
+            errorMessages["suggestedAlias"] = 'Spaces are not allowed in URLs';
+          }
+
+          var keyExists = await this.checkKeyExists();
+
+          if(keyExists.exists()) 
+          {
+            errors.push("suggestedAlias");
+            errorMessages["suggestedAlias"] = 'The Alias you have entered already exists! Please enter another one';
+          }
+      }
+
+      this.setState({
+        errors: errors,
+        errorMessages: errorMessages,
+        loading: false
+      });
+
+      if(errors.length > 0)
+      {
+        return false;
+      }
+
+      return true;
     }
+
+    checkKeyExists = async () => 
+    {
+      const dbRef = ref(getDatabase());
+      return get(child(dbRef, `/${this.state.preferredAlias}`)).catch((error) => 
+      {
+        return false;
+      });
+    }
+
+    copyToClipboard = () =>
+    {
+      navigator.clipboard.writeText(this.state.generatedURL)
+      this.setState({
+        toolTipMessage: 'Copied!'
+      })
+    }
+
+    render() {
+      
+    }
+
 
 }
