@@ -217,8 +217,38 @@ class Form extends React.Component {
               </div>
             )}
           </button>
+
+          {
+            this.state.generatedURL === '' ?
+            <div></div>
+            :
+            <div className="generatedurl">
+              <span>Your generated URL is: </span>
+              <div className="input-group mb-3">
+                <input disabled type="text" value={this.state.generatedURL} className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                 <div className="input-group-append">
+                  <OverlayTrigger
+                    key={'top'}
+                    placement={'top'}
+                    overlay={
+                      <Tooltip id={`tooltip-${'top'}`}>
+                        {this.state.toolTipMessage}
+                      </Tooltip>
+                    }
+                    >
+                      <button onClick={() => this.copyToClipboard()} data-toggle="tooltip" data-placement="top" title="Tooltip on top" className="btn btn-outline-secondary" type="button" >Copy</button>
+                    </OverlayTrigger>
+                 </div>
+
+              </div>
+            </div>
+          }
+
         </form>
       </div>
     );
   }
 }
+
+
+export default Form;

@@ -5,16 +5,18 @@ import Form from "./components/Form";
 
 function App() {
   return (
-    <div className="App">
-      <div className="auth-wrapper">
-        <div className="auth-inner">
-          <Routes>
-            <Route exact path='/' Component={Form}/>
-            <Router path='/app' Component={Form}/>
-          </Routes>
+    <Router>
+      <div className="App">
+        <div className="auth-wrapper">
+          <div className="auth-inner">
+            <Routes>
+              <Route exact path="/" Component={Form} />
+              <Route path="/app" Component={Form} />
+            </Routes>
+          </div>
         </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
