@@ -119,10 +119,10 @@ function Form() {
   return (
     <div className="container">
       <form autoComplete="off">
-        <h3>Mini Link isfs</h3>
+        <h3>URL Slicer ✂️ </h3>
 
         <div className="form-group">
-          <label>Enter Your Long URL</label>
+          <label>Enter Your Original URL</label>
           <input
             id="longURL"
             onChange={handleChange}
@@ -146,10 +146,10 @@ function Form() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="basic-url">Your Mini URL</label>
+          <label htmlFor="basic-url">Your New URL</label>
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <span className="input-group-text">minilinkit.com</span>
+              <span className="input-group-text">urlslicer.com</span>
             </div>
             <input
               id="preferredAlias"

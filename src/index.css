@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background:linear-gradient(#8EC5FC, #E0C3FC);
+  background:linear-gradient(#0c6ccb, #0092b3);
   min-height: 100vh;
   display: flex;
   font-weight: 400;
