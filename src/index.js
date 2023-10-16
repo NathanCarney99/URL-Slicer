@@ -1,10 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {initializeApp} from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -18,12 +17,12 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 
+const root = createRoot(document.getElementById('root'));
 
-ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById('root')
+root.render(   
+   <App />
+
+
 );
 
 // If you want to start measuring performance in your app, pass a function
