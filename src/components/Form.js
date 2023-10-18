@@ -26,11 +26,11 @@ function Form() {
     }
 
     let generatedKey = nanoid(5);
-    let generatedURL = "tinyLink.com/" + generatedKey;
+    let generatedURL = "urlslicer.com/" + generatedKey;
 
     if (preferredAlias !== "") {
       generatedKey = preferredAlias;
-      generatedURL = "tinyLink.com/" + preferredAlias;
+      generatedURL = "urlslicer.com/" + preferredAlias;
     }
 
     const db = getDatabase();
@@ -195,7 +195,7 @@ function Form() {
                 role="status"
                 aria-hidden="true"
               ></span>
-              <span>Mini-Link It</span>
+              <span>Slice It</span>
             </div>
           )}
         </button>

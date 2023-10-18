@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from 'firebase/app';
 
+
+// Connecting to database...
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "url-shortener-12a39.firebaseapp.com",
@@ -17,12 +19,11 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 
-const root = createRoot(document.getElementById('root'));
 
+
+const root = createRoot(document.getElementById('root'));
 root.render(   
    <App />
-
-
 );
 
 // If you want to start measuring performance in your app, pass a function
