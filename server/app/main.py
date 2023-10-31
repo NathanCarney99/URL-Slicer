@@ -19,12 +19,15 @@ def hello_world():
 def homepage():
     return render_template("index.html")
 
-@app.route('/path:generatedKey>', methods=['GET'])
+@app.route('/<path:generatedKey>', methods=['GET'])
 def fetch_from_firebase(generatedKey):
-    ref = db.reference("/"+generatedKey)
+    ref = db.reference(generatedKey)
     data = ref.get()
     if not data:
         return '404 not found'
     else: 
-        longURL = data[longURL]
-        return redirect(longURL)
+        longURL = data.get('longURL')
+        if longURL is not None:
+            return redirect(longURL)
+        else:
+            return 'longURL not found'
