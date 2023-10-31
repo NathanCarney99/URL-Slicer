@@ -1,4 +1,4 @@
-from flask import flask, redirect, render_template
+from flask import Flask, redirect, render_template
 import firebase_admin 
 from firebase_admin import db
 import os
@@ -9,7 +9,7 @@ default_app = firebase_admin.initialize_app(cred_obj, {
     'databaseURL': 'https://url-shortener-12a39-default-rtdb.firebaseio.com/'
 })
 
-app = flask(__name__, static_folder='./build/static', template__folder='./build')
+app = Flask(__name__, static_folder='./build/static', template_folder='./build')
 
 @app.route("/")
 def hello_world():
