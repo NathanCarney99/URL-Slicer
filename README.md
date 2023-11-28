@@ -50,8 +50,4 @@ URL Slicer is a web application that allows you to take a long URL and shorten i
 
 - Access a short URL, and the server will redirect you to the corresponding original long URL if it exists in the Firebase database.
 
-## Deployment
-
-This project can be deployed to a hosting service of your choice, ensuring the necessary environment variables are set and Firebase configuration is correctly set up.
-
 Enjoy!
