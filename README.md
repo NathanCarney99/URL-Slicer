@@ -50,4 +50,7 @@ URL Slicer is a web application that allows you to take a long URL and shorten i
 
 - Access a short URL, and the server will redirect you to the corresponding original long URL if it exists in the Firebase database.
 
+![screenshot2](https://github.com/rundex0/URL-Shortener/assets/69157728/6fa6df20-308d-4f9c-a95a-d986468396df)
+
+
 Enjoy!
